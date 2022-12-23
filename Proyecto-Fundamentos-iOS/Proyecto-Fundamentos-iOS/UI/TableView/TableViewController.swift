@@ -32,8 +32,6 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self //A nuestra clase le indicamos que herede de UITableViewDelegate.
         tableView.dataSource = self //A nuestra clase le indicamos que herede de UITableDataSource.
         
-//        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cell") //Tipo de celda e indentificador único con el nombre de "cell"
-        
         let xib = UINib(nibName: "TableCell", bundle: nil) //aquí instanciamos el archivo Xib de TableCell
         tableView.register(xib, forCellReuseIdentifier: "customTableCell")
     }
@@ -51,5 +49,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         cell.titleLabel.text = customItem.text //Aquí implementamos la label de cada celda.
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { //Este método es para darle altura a las celdas
+        return 100
     }
 }

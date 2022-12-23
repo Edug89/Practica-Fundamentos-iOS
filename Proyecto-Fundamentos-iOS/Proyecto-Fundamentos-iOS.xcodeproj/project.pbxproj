@@ -18,6 +18,7 @@
 		14273B062954AD330007B94B /* Proyecto_Fundamentos_iOSUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14273B052954AD330007B94B /* Proyecto_Fundamentos_iOSUITestsLaunchTests.swift */; };
 		14273B172954AEB40007B94B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14273B152954AEB40007B94B /* TableViewController.swift */; };
 		14273B182954AEB40007B94B /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14273B162954AEB40007B94B /* TableViewController.xib */; };
+		148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927E429562B900000E7D6 /* HomeTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		14273B052954AD330007B94B /* Proyecto_Fundamentos_iOSUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Proyecto_Fundamentos_iOSUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		14273B152954AEB40007B94B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		14273B162954AEB40007B94B /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
+		148927E429562B900000E7D6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,6 +152,7 @@
 		14273B132954AD720007B94B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				148927E329562B530000E7D6 /* HomeTabBar */,
 				14273B142954ADC40007B94B /* TableView */,
 			);
 			path = UI;
@@ -163,6 +166,14 @@
 				14273B162954AEB40007B94B /* TableViewController.xib */,
 			);
 			path = TableView;
+			sourceTree = "<group>";
+		};
+		148927E329562B530000E7D6 /* HomeTabBar */ = {
+			isa = PBXGroup;
+			children = (
+				148927E429562B900000E7D6 /* HomeTabBarController.swift */,
+			);
+			path = HomeTabBar;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -301,6 +312,7 @@
 				14273B172954AEB40007B94B /* TableViewController.swift in Sources */,
 				1415666F2954D47200D39FC6 /* TableCell.swift in Sources */,
 				14273AE52954AD320007B94B /* SceneDelegate.swift in Sources */,
+				148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

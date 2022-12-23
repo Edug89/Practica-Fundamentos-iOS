@@ -16,7 +16,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowsScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowsScene)
-        window?.rootViewController = TableViewController() //Indicamos el archivo raid, el primero que carga
+        window?.rootViewController = HomeTabBarController() //Indicamos el archivo raid, el primero que carga
         window?.makeKeyAndVisible() //Indicamos este método para que tenga visivilidad TableViewController
     }
 
