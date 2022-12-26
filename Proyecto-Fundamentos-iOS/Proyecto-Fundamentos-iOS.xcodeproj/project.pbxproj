@@ -19,6 +19,10 @@
 		14273B172954AEB40007B94B /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14273B152954AEB40007B94B /* TableViewController.swift */; };
 		14273B182954AEB40007B94B /* TableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 14273B162954AEB40007B94B /* TableViewController.xib */; };
 		148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927E429562B900000E7D6 /* HomeTabBarController.swift */; };
+		148927EE295A0E740000E7D6 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927EC295A0E740000E7D6 /* CollectionViewController.swift */; };
+		148927EF295A0E740000E7D6 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148927ED295A0E740000E7D6 /* CollectionViewController.xib */; };
+		148927F3295A21470000E7D6 /* CollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927F1295A21470000E7D6 /* CollectionCell.swift */; };
+		148927F4295A21470000E7D6 /* CollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148927F2295A21470000E7D6 /* CollectionCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +59,10 @@
 		14273B152954AEB40007B94B /* TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		14273B162954AEB40007B94B /* TableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TableViewController.xib; sourceTree = "<group>"; };
 		148927E429562B900000E7D6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
+		148927EC295A0E740000E7D6 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
+		148927ED295A0E740000E7D6 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
+		148927F1295A21470000E7D6 /* CollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionCell.swift; sourceTree = "<group>"; };
+		148927F2295A21470000E7D6 /* CollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,8 +124,8 @@
 			children = (
 				14273B122954AD610007B94B /* App */,
 				14273B132954AD720007B94B /* UI */,
-				14273AEB2954AD330007B94B /* Assets.xcassets */,
 				14273AED2954AD330007B94B /* LaunchScreen.storyboard */,
+				14273AEB2954AD330007B94B /* Assets.xcassets */,
 				14273AF02954AD330007B94B /* Info.plist */,
 			);
 			path = "Proyecto-Fundamentos-iOS";
@@ -154,6 +162,7 @@
 			children = (
 				148927E329562B530000E7D6 /* HomeTabBar */,
 				14273B142954ADC40007B94B /* TableView */,
+				148927EB295A0E430000E7D6 /* CollectionView */,
 			);
 			path = UI;
 			sourceTree = "<group>";
@@ -174,6 +183,25 @@
 				148927E429562B900000E7D6 /* HomeTabBarController.swift */,
 			);
 			path = HomeTabBar;
+			sourceTree = "<group>";
+		};
+		148927EB295A0E430000E7D6 /* CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				148927F0295A211E0000E7D6 /* CollectionCell */,
+				148927EC295A0E740000E7D6 /* CollectionViewController.swift */,
+				148927ED295A0E740000E7D6 /* CollectionViewController.xib */,
+			);
+			path = CollectionView;
+			sourceTree = "<group>";
+		};
+		148927F0295A211E0000E7D6 /* CollectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				148927F1295A21470000E7D6 /* CollectionCell.swift */,
+				148927F2295A21470000E7D6 /* CollectionCell.xib */,
+			);
+			path = CollectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -281,7 +309,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				14273B182954AEB40007B94B /* TableViewController.xib in Resources */,
+				148927EF295A0E740000E7D6 /* CollectionViewController.xib in Resources */,
 				14273AEF2954AD330007B94B /* LaunchScreen.storyboard in Resources */,
+				148927F4295A21470000E7D6 /* CollectionCell.xib in Resources */,
 				141566702954D47200D39FC6 /* TableCell.xib in Resources */,
 				14273AEC2954AD330007B94B /* Assets.xcassets in Resources */,
 			);
@@ -308,9 +338,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				148927EE295A0E740000E7D6 /* CollectionViewController.swift in Sources */,
 				14273AE32954AD320007B94B /* AppDelegate.swift in Sources */,
 				14273B172954AEB40007B94B /* TableViewController.swift in Sources */,
 				1415666F2954D47200D39FC6 /* TableCell.swift in Sources */,
+				148927F3295A21470000E7D6 /* CollectionCell.swift in Sources */,
 				14273AE52954AD320007B94B /* SceneDelegate.swift in Sources */,
 				148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */,
 			);
