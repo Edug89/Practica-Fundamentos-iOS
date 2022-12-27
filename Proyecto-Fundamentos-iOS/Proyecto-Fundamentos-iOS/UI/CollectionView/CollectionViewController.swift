@@ -7,7 +7,7 @@
 
 import UIKit
 
-class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
+class CollectionViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
@@ -42,6 +42,15 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         cell.iconImageView.image = customItem.image
         cell.titleLabel.text = customItem.text
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize { //Aqui indicamos el tamaño de las celdas.
+        let itemsInRow: CGFloat = 2 // Número de celdas por filas
+        let spacing: CGFloat = 12 // Este es el espacio que hay entre celda y celda de ancho.
+        let totalSpacing: CGFloat = (itemsInRow - 1) * spacing // Aquí es el número de elementos -1
+        let finalWidth = (collectionView.frame.width - totalSpacing) / itemsInRow
+        
+        return CGSize(width: finalWidth, height: 120)
     }
 
 }
