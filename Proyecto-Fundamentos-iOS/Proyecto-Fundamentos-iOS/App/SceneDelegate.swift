@@ -16,7 +16,13 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         guard let windowsScene = (scene as? UIWindowScene) else { return }
         window = UIWindow(windowScene: windowsScene)
-        window?.rootViewController = LoginViewController() //Indicamos el archivo raid, el primero que carga
+        
+        //Aquí indicamos:si el usuario está logueado directamente vaya al HombeTabBarController, de lo contrario que le pida usuario y contraseña.
+        if LocalDataLayer.shared.isUserLogged() {
+            window?.rootViewController = HomeTabBarController()
+        } else {
+            window?.rootViewController = LoginViewController()
+        }
         window?.makeKeyAndVisible() //Indicamos este método para que tenga visivilidad TableViewController
     }
 

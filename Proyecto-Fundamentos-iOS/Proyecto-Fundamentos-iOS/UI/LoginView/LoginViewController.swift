@@ -33,11 +33,18 @@ class LoginViewController: UIViewController {
         NetworkLayer.shared.login(email: email, password: password) { token, error in
             if let token = token {
                 LocalDataLayer.shared.save(token: token)
-                print("We got a valid token!")
-                print(token)
+                
+                DispatchQueue.main.async {//Aquí indicamos que una vez se compruebe el login si es correcto navegue hacia HomeTabBarController
+                    UIApplication
+                        .shared
+                        .connectedScenes
+                        .compactMap{ ($0 as? UIWindowScene)?.keyWindow }
+                        .first?
+                        .rootViewController = HomeTabBarController()
+                }
+                
             } else {
                 print("Login Error: ", error?.localizedDescription ?? "")
-                
             }
         }
     }
