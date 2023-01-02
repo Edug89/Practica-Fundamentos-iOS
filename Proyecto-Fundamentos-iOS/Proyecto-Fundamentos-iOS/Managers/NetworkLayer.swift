@@ -19,7 +19,47 @@ final class NetworkLayer {
     
     static let shared = NetworkLayer()
     
+    //Esta sería la URL de la llamada a Login, en caso de error lo capturamos.
     func login(email: String, password: String, completion: @escaping (String?, Error?) -> Void ) {
+        guard let url = URL(string: "https://dragonball.keepcoding.education/api/auth/login") else {
+            completion(nil, NetworkError.malformedURL)
+            return
+        }
+        
+        let loginString = "\(email):\(password)"
+        let loginData: Data = loginString.data(using: .utf8)!
+        let base64 = loginData.base64EncodedString() //Debemos de convertir las contantes de antes en base 64 que es el modelo de como está la api.
+        var urlRequest =  URLRequest(url:url)
+        urlRequest.httpMethod = "POST" //Tenemos que espeficiarlo ya que viene predeterminado como GET
+        urlRequest.setValue("Basic \(base64)", forHTTPHeaderField: "Authorization") //Este será el tipo de autorización que tiene la api para comprobar tus credenciales y darte acceso
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+            
+            guard error == nil else {
+                completion(nil,error)
+                return //Compromaos que el error es NULO si si no es así algo habría ido mal y devolveriamos un nulo y el error.
+            }
+            
+            guard let data = data else {
+                completion(nil, NetworkError.noData)
+                return //Aquí nos aseguramos que el data viene, en caso de que no venga mostramos un Nil con el error noData
+            }
+            
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                completion(nil, NetworkError.statusCode(code: statusCode))
+                return // Indicamos que si el statusCode no es 200 capturamos el error indicando que no es correcto
+            }
+            
+            guard let token = String(data: data, encoding: .utf8) else {
+                completion(nil,NetworkError.decodingFailed)
+                return //Si llegamos a este guardlet, indica que todo lo anterior se ha ido cumpliendo y ya tenemos nuestro token
+            }
+            
+            completion(token, nil)
+        }
+        
+        task.resume() //Con esto indicamos la llamada a la API
         
     }
         

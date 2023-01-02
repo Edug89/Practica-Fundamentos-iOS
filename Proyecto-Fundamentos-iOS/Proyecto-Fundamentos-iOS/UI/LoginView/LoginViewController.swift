@@ -19,7 +19,27 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
-    @IBAction func loginButtonTapped(_ sender: Any) {
+    @IBAction func loginButtonTapped(_ sender: Any) { //Aquí deffinimos el botón para hacer ya la llamada con el login, toda la función de esta llamada,está en el NetworLayer.
+        guard let email = emailTextField.text, !email.isEmpty else {
+            print("email is empty")
+            return
+        }
+        
+        guard let password  = passwordTextField.text, !password.isEmpty else {
+            print("password is empty")
+            return
+        }
+        
+        NetworkLayer.shared.login(email: email, password: password) { token, error in
+            if let token = token {
+                LocalDataLayer.shared.save(token: token)
+                print("We got a valid token!")
+                print(token)
+            } else {
+                print("Login Error: ", error?.localizedDescription ?? "")
+                
+            }
+        }
     }
     
 
