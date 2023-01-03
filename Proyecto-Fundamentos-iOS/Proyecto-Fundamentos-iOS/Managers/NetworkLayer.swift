@@ -64,7 +64,7 @@ final class NetworkLayer {
     }
     //Este sería la funcíon de llamada a la api para traer personajes
     func fetchHeroes(token: String?, completion: @escaping ([Heroe]?, Error?) -> Void) {
-        guard let url = URL(string: "https://dragonball.keepcoding.education/api/auth/heros/all")else{
+        guard let url = URL(string: "https://dragonball.keepcoding.education/api/heros/all") else {
             completion(nil, NetworkError.malformedURL)
             return
         }
@@ -75,6 +75,7 @@ final class NetworkLayer {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "POST"
         urlRequest.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization") //Excepto en el login que se hace con el Basic, en las demás llamadas se hacen con Bearer \(token)
+        urlRequest.httpBody = urlComponents.query?.data(using: .utf8) //Aquí indicamos el tipo de body para hacer la llamada y hay que hacerlo de tipo data.
         
         let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
             guard error == nil else {

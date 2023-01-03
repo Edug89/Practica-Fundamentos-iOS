@@ -12,5 +12,5 @@ struct Heroe: Codable {
     let name: String
     let photo: String
     let description: String
-    let favorite : Bool
+    let favorite: Bool
 }
