@@ -24,6 +24,8 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self //A nuestra clase le indicamos que herede de UITableViewDelegate.
         tableView.dataSource = self //A nuestra clase le indicamos que herede de UITableDataSource.
         
+        title = "Heroes"
+        
         let xib = UINib(nibName: "TableCell", bundle: nil) //aquí instanciamos el archivo Xib de TableCell
         tableView.register(xib, forCellReuseIdentifier: "customTableCell")
         
@@ -51,17 +53,19 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-
+// Pintamos la celda con los cambios que indiquemos
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTableCell", for: indexPath) as! TableCell //Pasamos el nombre de la celda XIB y en el for indexPath
         let heroe = heroes[indexPath.row] //Sacamos el objeto del array
         cell.iconImageView.setImage(url: heroe.photo) //Aqui pintamos la imagenes de cada celda.
         cell.titleLabel.text = heroe.name //Aquí implementamos la label de cada celda.
+        cell.descLabel.text = heroe.description //Aquí implemaentamos la descripción del heroe
+        cell.accessoryType = .disclosureIndicator // indica el icono de la flecha en cada celda
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { //Este método es para darle altura a las celdas
-        return 100
+        return 140
     }
 }
 
