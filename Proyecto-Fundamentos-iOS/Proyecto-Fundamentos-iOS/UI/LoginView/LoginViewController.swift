@@ -13,10 +13,32 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var loginButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewDidAppear(_ animated: Bool) { //Con esta función le damos animación al login
+        super.viewDidAppear(animated)
+        
+        emailTextField.center.x -= view.bounds.width //indicamos que email aparezca fuera de la pantalla
+        passwordTextField.center.x -= view.bounds.width //indicamos que contraseña aparezca ffuera de la pantalla
+        loginButton.alpha = 0 //Aquí indicamos que el botón es transparente
+        
+        UIView.animate(withDuration: 2,
+                       delay: 0,
+                       usingSpringWithDamping: 0.75,
+                       initialSpringVelocity: 0,
+                       options: []) {
+            self.emailTextField.center.x += self.view.bounds.width
+            self.passwordTextField.center.x += self.view.bounds.width
+        }
+        
+        UIView.animate(withDuration: 3) {
+            self.loginButton.alpha = 1 //En la animación le indicamos que se ponga opaco en 3segundos
+        }
     }
 
     @IBAction func loginButtonTapped(_ sender: Any) { //Aquí deffinimos el botón para hacer ya la llamada con el login, toda la función de esta llamada,está en el NetworLayer.

@@ -55,17 +55,26 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 // Pintamos la celda con los cambios que indiquemos
         let cell = tableView.dequeueReusableCell(withIdentifier: "customTableCell", for: indexPath) as! TableCell //Pasamos el nombre de la celda XIB y en el for indexPath
+        
         let heroe = heroes[indexPath.row] //Sacamos el objeto del array
+        
         cell.iconImageView.setImage(url: heroe.photo) //Aqui pintamos la imagenes de cada celda.
         cell.titleLabel.text = heroe.name //Aquí implementamos la label de cada celda.
         cell.descLabel.text = heroe.description //Aquí implemaentamos la descripción del heroe
         cell.accessoryType = .disclosureIndicator // indica el icono de la flecha en cada celda
+        cell.selectionStyle = .none // la celda no sale ningún seleccionado cuando pinchas para navegar
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat { //Este método es para darle altura a las celdas
         return 140
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //Con esta función hacemos la navegación de la tableView hacia detailView, confi dicha navegación
+        let heroe = heroes[indexPath.row]
+        let detailsView = DetailsViewController()
+        navigationController?.pushViewController(detailsView, animated: true)
     }
 }
 

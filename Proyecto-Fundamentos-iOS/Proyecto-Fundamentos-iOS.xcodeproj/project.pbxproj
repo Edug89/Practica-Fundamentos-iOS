@@ -23,6 +23,8 @@
 		1487FB1729605E1A009A9819 /* LocalDataLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB1629605E1A009A9819 /* LocalDataLayer.swift */; };
 		1487FB1929605E4D009A9819 /* NetworkLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB1829605E4D009A9819 /* NetworkLayer.swift */; };
 		1487FB1C29605FB5009A9819 /* Heroe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB1B29605FB5009A9819 /* Heroe.swift */; };
+		1487FB20296984EC009A9819 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB1E296984EC009A9819 /* DetailsViewController.swift */; };
+		1487FB21296984EC009A9819 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1487FB1F296984EC009A9819 /* DetailsViewController.xib */; };
 		148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927E429562B900000E7D6 /* HomeTabBarController.swift */; };
 		148927EE295A0E740000E7D6 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927EC295A0E740000E7D6 /* CollectionViewController.swift */; };
 		148927EF295A0E740000E7D6 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148927ED295A0E740000E7D6 /* CollectionViewController.xib */; };
@@ -68,6 +70,8 @@
 		1487FB1629605E1A009A9819 /* LocalDataLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalDataLayer.swift; sourceTree = "<group>"; };
 		1487FB1829605E4D009A9819 /* NetworkLayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkLayer.swift; sourceTree = "<group>"; };
 		1487FB1B29605FB5009A9819 /* Heroe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Heroe.swift; sourceTree = "<group>"; };
+		1487FB1E296984EC009A9819 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		1487FB1F296984EC009A9819 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		148927E429562B900000E7D6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		148927EC295A0E740000E7D6 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		148927ED295A0E740000E7D6 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -181,6 +185,7 @@
 		14273B132954AD720007B94B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1487FB1D296984BE009A9819 /* DetailsView */,
 				1402F8A3296057D300036C96 /* LoginView */,
 				148927E329562B530000E7D6 /* HomeTabBar */,
 				14273B142954ADC40007B94B /* TableView */,
@@ -214,6 +219,15 @@
 				1487FB1B29605FB5009A9819 /* Heroe.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		1487FB1D296984BE009A9819 /* DetailsView */ = {
+			isa = PBXGroup;
+			children = (
+				1487FB1E296984EC009A9819 /* DetailsViewController.swift */,
+				1487FB1F296984EC009A9819 /* DetailsViewController.xib */,
+			);
+			path = DetailsView;
 			sourceTree = "<group>";
 		};
 		148927E329562B530000E7D6 /* HomeTabBar */ = {
@@ -354,6 +368,7 @@
 				141566702954D47200D39FC6 /* TableCell.xib in Resources */,
 				1402F8A72960581A00036C96 /* LoginViewController.xib in Resources */,
 				14273AEC2954AD330007B94B /* Assets.xcassets in Resources */,
+				1487FB21296984EC009A9819 /* DetailsViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -389,6 +404,7 @@
 				14273AE52954AD320007B94B /* SceneDelegate.swift in Sources */,
 				1487FB1929605E4D009A9819 /* NetworkLayer.swift in Sources */,
 				148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */,
+				1487FB20296984EC009A9819 /* DetailsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
