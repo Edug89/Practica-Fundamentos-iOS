@@ -25,7 +25,7 @@ class LoginViewController: UIViewController {
         
         emailTextField.center.x -= view.bounds.width //indicamos que email aparezca fuera de la pantalla
         passwordTextField.center.x -= view.bounds.width //indicamos que contraseña aparezca ffuera de la pantalla
-        loginButton.alpha = 0 //Aquí indicamos que el botón es transparente
+        loginButton.alpha = 0 //Aquí indicamos que el botón es transparente(alpha corresponde a la visibilidad)
         
         UIView.animate(withDuration: 2,
                        delay: 0,

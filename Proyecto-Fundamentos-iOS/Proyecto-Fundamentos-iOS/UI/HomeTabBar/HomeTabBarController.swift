@@ -22,11 +22,12 @@ class HomeTabBarController: UITabBarController {
         let tabImage = UIImage(systemName: "text.justify")!
         navigationController.tabBarItem = UITabBarItem(title: "TableView", image: tabImage, tag: 0)
         
-        let collectionViewController = CollectionViewController()
+       
+        let navigationController2 = UINavigationController(rootViewController: CollectionViewController())
         let tabImg = UIImage(systemName: "square.grid.3x3.topleft.filled")!
-        collectionViewController.tabBarItem = UITabBarItem(title: "CollectionView", image: tabImg, tag: 1)
+        navigationController2.tabBarItem = UITabBarItem(title: "CollectionView", image: tabImg, tag: 1)
         
-        viewControllers = [navigationController, collectionViewController]
+        viewControllers = [navigationController, navigationController2]
          
     }
     

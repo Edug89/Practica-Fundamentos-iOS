@@ -24,7 +24,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         tableView.delegate = self //A nuestra clase le indicamos que herede de UITableViewDelegate.
         tableView.dataSource = self //A nuestra clase le indicamos que herede de UITableDataSource.
         
-        title = "Heroes"
+        navigationItem.title = "Heroes"
         
         let xib = UINib(nibName: "TableCell", bundle: nil) //aquí instanciamos el archivo Xib de TableCell
         tableView.register(xib, forCellReuseIdentifier: "customTableCell")
@@ -32,10 +32,11 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
         let token = LocalDataLayer.shared.getToken() //Nos traemos al token
         
         NetworkLayer.shared.fetchHeroes(token: token) { [weak self] allHeroes, error in //LLamamos a la API
-            guard let self = self else { return } // Desepacamos de forma segura
+            guard let self = self else { return } // Desempacamos de forma segura
             
             if let allHeroes = allHeroes { //Y con esos personajes que nos devuelve la api (allHeroes)                                  refrescamos la tableview
                 self.heroes = allHeroes
+                LocalDataLayer.shared.save(heroes: allHeroes) //Una vez venimos de la llamada de la API guardamos aquí los Heroes
                 
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
