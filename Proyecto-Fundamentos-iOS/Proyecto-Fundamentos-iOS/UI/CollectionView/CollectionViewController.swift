@@ -54,5 +54,13 @@ class CollectionViewController: UIViewController, UICollectionViewDelegate, UICo
         
         return CGSize(width: finalWidth, height: 120)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let heroe = heroes[indexPath.row]
+        let detailsView = DetailsViewController()
+        detailsView.heroe = heroe
+        navigationController?.pushViewController(detailsView, animated: true)
+        
+    }
 
 }

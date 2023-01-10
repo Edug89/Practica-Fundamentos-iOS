@@ -8,22 +8,48 @@
 import UIKit
 
 class DetailsViewController: UIViewController {
+    @IBOutlet weak var heroeImageView: UIImageView!
+    @IBOutlet weak var heroeNameLabel: UILabel!
+    @IBOutlet weak var heroeDescLabel: UILabel!
+    @IBOutlet weak var transformationsButton: UIButton!
+    
+    var heroe: Heroe!
+    var transformations: [Transformation] = [] //Me creo este array para guardar transformaciones.
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.transformationsButton.alpha = 0
 
-        // Do any additional setup after loading the view.
+        title = heroe.name
+        
+        heroeImageView.setImage(url: heroe.photo)
+        heroeNameLabel.text = heroe.name
+        heroeDescLabel.text = heroe.description
+        
+        let token = LocalDataLayer.shared.getToken() //Me traigo el token para la llamada.
+        
+        NetworkLayer
+            .shared
+            .fetchTransformations(token: token, heroeId: heroe.id) { [weak self] allTrans, error in guard let self = self else { return }
+                
+                if let allTrans = allTrans {
+                    self.transformations = allTrans
+                    
+                    DispatchQueue.main.async {
+                        self.transformationsButton.alpha = 1
+                    }
+                    
+                } else {
+                    print("Error fetching transformations: ", error?.localizedDescription ?? "")
+                }
+                
+            }
     }
 
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func transformationsButtonTapped(_ sender: UIButton) {
+        print("Hola!!!")
     }
-    */
-
+    
 }

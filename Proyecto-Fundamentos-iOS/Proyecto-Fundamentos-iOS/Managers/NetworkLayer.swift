@@ -97,5 +97,41 @@ final class NetworkLayer {
         }
         task.resume()
     }
+    
+    //Este sería la funcíon de llamada a la api para traer las transformaciones de personajes. Llamada y comprovaciones sería muy parecida al de Heroes, solo cambiando los tipos de parámetros de Heroe a Transformaciones(Previamente creamos el modelo de Transformation)
+    func fetchTransformations(token: String?, heroeId: String? , completion: @escaping ([Transformation]?, Error?) -> Void) {
+        guard let url = URL(string: "https://dragonball.keepcoding.education/api/heros/tranformations") else {
+            completion(nil, NetworkError.malformedURL)
+            return
+        }
+        
+        var urlComponents = URLComponents() //Esto sería para hacer la llamada a la API del nombre de heroe
+        urlComponents.queryItems = [URLQueryItem(name: "id", value: heroeId ?? "")]
+        
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization") //Excepto en el login que se hace con el Basic, en las demás llamadas se hacen con Bearer \(token)
+        urlRequest.httpBody = urlComponents.query?.data(using: .utf8) //Aquí indicamos el tipo de body para hacer la llamada y hay que hacerlo de tipo data.
+        
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+            guard error == nil else {
+                completion(nil, error)
+                return
+            }
+            
+            guard let data = data else {
+                completion(nil, NetworkError.noData)
+                return
+            }
+            
+            guard let transformations = try? JSONDecoder().decode([Transformation].self, from: data) else {
+                completion(nil, NetworkError.decodingFailed)
+                return
+            }
+            //Si no encuentra ningún error
+            completion(transformations, nil)
+        }
+        task.resume()
+    }
         
 }

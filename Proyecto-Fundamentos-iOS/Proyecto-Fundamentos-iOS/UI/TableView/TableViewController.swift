@@ -75,6 +75,7 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) { //Con esta función hacemos la navegación de la tableView hacia detailView, confi dicha navegación
         let heroe = heroes[indexPath.row]
         let detailsView = DetailsViewController()
+        detailsView.heroe = heroe //Con esto inyectamos el heroe antes de que cargue la vista en la siguiente línea.
         navigationController?.pushViewController(detailsView, animated: true)
     }
 }
