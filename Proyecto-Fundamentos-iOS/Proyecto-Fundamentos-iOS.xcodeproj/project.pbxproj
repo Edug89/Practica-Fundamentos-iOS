@@ -26,6 +26,8 @@
 		1487FB20296984EC009A9819 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB1E296984EC009A9819 /* DetailsViewController.swift */; };
 		1487FB21296984EC009A9819 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1487FB1F296984EC009A9819 /* DetailsViewController.xib */; };
 		1487FB23296DF97F009A9819 /* Transformation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB22296DF97F009A9819 /* Transformation.swift */; };
+		1487FB27296F37FC009A9819 /* TransformationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1487FB25296F37FC009A9819 /* TransformationsViewController.swift */; };
+		1487FB28296F37FC009A9819 /* TransformationsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1487FB26296F37FC009A9819 /* TransformationsViewController.xib */; };
 		148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927E429562B900000E7D6 /* HomeTabBarController.swift */; };
 		148927EE295A0E740000E7D6 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 148927EC295A0E740000E7D6 /* CollectionViewController.swift */; };
 		148927EF295A0E740000E7D6 /* CollectionViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 148927ED295A0E740000E7D6 /* CollectionViewController.xib */; };
@@ -74,6 +76,8 @@
 		1487FB1E296984EC009A9819 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		1487FB1F296984EC009A9819 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 		1487FB22296DF97F009A9819 /* Transformation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transformation.swift; sourceTree = "<group>"; };
+		1487FB25296F37FC009A9819 /* TransformationsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransformationsViewController.swift; sourceTree = "<group>"; };
+		1487FB26296F37FC009A9819 /* TransformationsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransformationsViewController.xib; sourceTree = "<group>"; };
 		148927E429562B900000E7D6 /* HomeTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarController.swift; sourceTree = "<group>"; };
 		148927EC295A0E740000E7D6 /* CollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewController.swift; sourceTree = "<group>"; };
 		148927ED295A0E740000E7D6 /* CollectionViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CollectionViewController.xib; sourceTree = "<group>"; };
@@ -187,6 +191,7 @@
 		14273B132954AD720007B94B /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				1487FB24296F37DC009A9819 /* TransformationsView */,
 				1487FB1D296984BE009A9819 /* DetailsView */,
 				1402F8A3296057D300036C96 /* LoginView */,
 				148927E329562B530000E7D6 /* HomeTabBar */,
@@ -231,6 +236,15 @@
 				1487FB1F296984EC009A9819 /* DetailsViewController.xib */,
 			);
 			path = DetailsView;
+			sourceTree = "<group>";
+		};
+		1487FB24296F37DC009A9819 /* TransformationsView */ = {
+			isa = PBXGroup;
+			children = (
+				1487FB25296F37FC009A9819 /* TransformationsViewController.swift */,
+				1487FB26296F37FC009A9819 /* TransformationsViewController.xib */,
+			);
+			path = TransformationsView;
 			sourceTree = "<group>";
 		};
 		148927E329562B530000E7D6 /* HomeTabBar */ = {
@@ -365,6 +379,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				14273B182954AEB40007B94B /* TableViewController.xib in Resources */,
+				1487FB28296F37FC009A9819 /* TransformationsViewController.xib in Resources */,
 				148927EF295A0E740000E7D6 /* CollectionViewController.xib in Resources */,
 				14273AEF2954AD330007B94B /* LaunchScreen.storyboard in Resources */,
 				148927F4295A21470000E7D6 /* CollectionCell.xib in Resources */,
@@ -405,6 +420,7 @@
 				1487FB23296DF97F009A9819 /* Transformation.swift in Sources */,
 				1402F8A62960581A00036C96 /* LoginViewController.swift in Sources */,
 				148927F3295A21470000E7D6 /* CollectionCell.swift in Sources */,
+				1487FB27296F37FC009A9819 /* TransformationsViewController.swift in Sources */,
 				14273AE52954AD320007B94B /* SceneDelegate.swift in Sources */,
 				1487FB1929605E4D009A9819 /* NetworkLayer.swift in Sources */,
 				148927E529562B900000E7D6 /* HomeTabBarController.swift in Sources */,

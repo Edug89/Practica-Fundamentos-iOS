@@ -35,9 +35,12 @@ class DetailsViewController: UIViewController {
                 
                 if let allTrans = allTrans {
                     self.transformations = allTrans
+                    print("trans count: ", allTrans.count)
                     
-                    DispatchQueue.main.async {
-                        self.transformationsButton.alpha = 1
+                    if !self.transformations.isEmpty { //Indicamos si contiene algo muestra el botón
+                        DispatchQueue.main.async {
+                            self.transformationsButton.alpha = 1
+                        }
                     }
                     
                 } else {
@@ -49,7 +52,10 @@ class DetailsViewController: UIViewController {
 
     
     @IBAction func transformationsButtonTapped(_ sender: UIButton) {
-        print("Hola!!!")
+        let trasView = TransformationsViewController() //Instanciamos la clase, para una vez pulsemos el botón haga la acción de navegar.
+        trasView.transformations = self.transformations
+        
+        navigationController?.pushViewController(trasView, animated: true)
+        
     }
-    
 }

@@ -113,9 +113,17 @@ final class NetworkLayer {
         urlRequest.setValue("Bearer \(token ?? "")", forHTTPHeaderField: "Authorization") //Excepto en el login que se hace con el Basic, en las demás llamadas se hacen con Bearer \(token)
         urlRequest.httpBody = urlComponents.query?.data(using: .utf8) //Aquí indicamos el tipo de body para hacer la llamada y hay que hacerlo de tipo data.
         
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, _, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
             guard error == nil else {
                 completion(nil, error)
+                return
+            }
+            
+            //Con esto comprueba si la URL es correcta en caso de que no lo sea te muestra en consola el tipo de error
+            guard (response as? HTTPURLResponse)?.statusCode == 200 else {
+                let statusCode = (response as? HTTPURLResponse)?.statusCode
+                completion(nil, NetworkError.statusCode(code: statusCode))
+                print("Error loading URL: Status error -->, ", (response as? HTTPURLResponse)?.statusCode ?? -1)
                 return
             }
             
