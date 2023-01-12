@@ -14,6 +14,20 @@ class HomeTabBarController: UITabBarController {
         
         setupLayout() //para setear colores
         setupTabs() //para setear el controlador en este caso el TableViewController
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(fetchHeroes),
+                                               name: Notification.Name("fetchHeroes"),
+                                               object: nil)
+    }
+    
+    @objc func fetchHeroes() {
+        print("Looking for new heroes from HomeTabBarController")
+        
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self)
     }
     
     private func setupTabs() {

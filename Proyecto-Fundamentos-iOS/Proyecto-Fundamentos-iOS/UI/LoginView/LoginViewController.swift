@@ -15,9 +15,32 @@ class LoginViewController: UIViewController {
     
     
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() //creaamos addObserver para abrir y cerrar el teclado con aviso en cansola
 
-        // Do any additional setup after loading the view.
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(openKeyboard),
+                                               name: UIResponder.keyboardWillShowNotification,
+                                               object: nil)
+        
+        NotificationCenter.default.addObserver(self,
+                                               selector: #selector(closeKeyboard),
+                                               name: UIResponder.keyboardWillHideNotification,
+                                               object: nil)
+    
+    }
+    
+    deinit {
+        NotificationCenter.default.removeObserver(self) //Aquí borraríamos todas las notificaciones ancladas en el Oserver
+    }
+        
+    @objc func openKeyboard() {
+        print("open Keyboard")
+            
+    }
+    
+    @objc func closeKeyboard() {
+        print("close Keyboard")
+        
     }
     
     override func viewDidAppear(_ animated: Bool) { //Con esta función le damos animación al login

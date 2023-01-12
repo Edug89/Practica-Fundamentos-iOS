@@ -38,6 +38,9 @@ class TableViewController: UIViewController, UITableViewDelegate, UITableViewDat
                 self.heroes = allHeroes
                 LocalDataLayer.shared.save(heroes: allHeroes) //Una vez venimos de la llamada de la API guardamos aquí los Heroes
                 
+                NotificationCenter.default.post(Notification(name: Notification.Name("fecthHeroes")))
+                //Enviamos la notificacion
+                
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
