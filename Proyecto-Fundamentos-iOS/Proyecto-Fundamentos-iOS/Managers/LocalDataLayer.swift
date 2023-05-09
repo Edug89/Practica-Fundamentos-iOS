@@ -8,11 +8,9 @@
 import Foundation
 
 final class LocalDataLayer {
-    
     private static let token = "token"
     private static let heroes = "heroes"
     
-
     static let shared = LocalDataLayer()
     
     func save(token: String) {
